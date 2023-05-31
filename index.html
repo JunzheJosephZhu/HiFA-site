@@ -261,7 +261,7 @@
             However, we can enhance our loss by computing the 
             reconstruction error in the RGB space, adding additional denoising steps, and
             even swapping the scheduler. Moreover, we also find that this loss enables us
-            to achieve better results by annealing the strength of added noise with timestep <b>negatively proportional to the current training iteration</b>. Furthermore, we propose several
+            to achieve better results by annealing the strength of added noise with timestep <b>negatively proportional to the square root of the current training iteration</b>. Furthermore, we propose several
             auxiliary losses to improve the quality of the generated 3D models,
             including a scale-invariant depth reconstruction loss using a
             pre-trained monocular depth prediction model, as well as a z-variance
