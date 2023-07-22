@@ -160,6 +160,71 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
+        <h2 class="title is-3"><p style="color:#FF0000">Update: New & Better Renderings!</p></h2>
+        <div class="content has-text-justified">
+          <center>
+            <p style="color:#FF0000">
+              We fixed Moire Patterns(flickering/ripples in the rendered videos). 
+              It turns out that our z-variance loss produced a really sharp boundary(which is neat), 
+              but during NeRF's coarse-to-fine upsampling, the fine samples would be concentrated <i>just inside</i> the object surface,
+              instead of covering <i>across</i> the surface.
+              Our solution is to apply a rectangular filter [1, 1, 1] to the coarse sample's CDF(cumulative distribution function) before we do the upsampling.
+            </p>
+        </center>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td><img src="./HiFA_files/updated_gifs/bunny2-updated.gif" width="1600" height="1600"></td>
+            <td><img src="./HiFA_files/updated_gifs/pancake-updated.gif" width="1600" height="1600"></td>
+          </tr>
+          <tr>
+            <td colspan="1" align="center">A baby bunny sitting on top of a stack of pancakes</td>
+            <td colspan="1" align="center">A stack of pancakes covered in maple syrup</td>
+          </tr>
+          <tr>
+            <td><img src="./HiFA_files/updated_gifs/ladybug-updated.gif" width="1600" height="1600"></td>
+            <td><img src="./HiFA_files/updated_gifs/snail-updated.gif" width="1600" height="1600"></td>
+          </tr>
+          <tr>
+            <td colspan="1" align="center">A ladybug</td>
+            <td colspan="1" align="center">A snail on a leaf</td>
+          </tr>
+          <tr>
+            <td><img src="./HiFA_files/updated_gifs/thanos2-updated.gif" width="1600" height="1600"></td>
+            <td><img src="./HiFA_files/updated_gifs/buddha2-updated.gif" width="1600" height="1600"></td>
+          </tr>
+          <tr>
+            <td colspan="1" align="center">Head of Thanos</td>
+            <td colspan="1" align="center">A wooden buudha head</td>
+          </tr>
+          <tr>
+            <td><img src="./HiFA_files/updated_gifs/peacock-updated.gif" width="1600" height="1600"></td>
+            <td><img src="./HiFA_files/updated_gifs/parrot-updated.gif" width="1600" height="1600"></td>
+          </tr>
+          <tr>
+            <td colspan="1" align="center">A peacock with a long neck</td>
+            <td colspan="1" align="center">A parrot</td>
+          </tr>
+          <tr>
+            <td><img src="./HiFA_files/updated_gifs/throne2-updated.gif" width="1600" height="1600"></td>
+            <td><img src="./HiFA_files/updated_gifs/cactus2-updated.gif" width="1600" height="1600"></td>
+          </tr>
+          <tr>
+            <td colspan="1" align="center">Iron throne from game of thrones</td>
+            <td colspan="1" align="center">Small saguaro cactus planted in a clay pot
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <hr>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
         <h2 class="title is-3">Text-to-3D Synthesis Results</h2>
         <div class="content has-text-justified">
           <p>
@@ -169,7 +234,8 @@
           </p>
         </div>
         <table>
-          <tbody><tr>
+          <tbody>
+          <tr>
             <td><img src="./HiFA_files/gifs/bunny.gif" width="800" height="800"></td>
             <td><img src="./HiFA_files/gifs/bunny-mesh.gif" width="800" height="800"></td>
             <td><img src="./HiFA_files/gifs/cactus.gif" width="800" height="800"></td>
