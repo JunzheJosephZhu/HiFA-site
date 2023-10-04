@@ -121,16 +121,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Automatic text-to-3D synthesis has achieved remarkable advancements
-            through the optimization of 3D models. Existing methods commonly rely
-            on pre-trained text-to-image generative models, such as diffusion models,
-            providing scores for 2D renderings of Neural Radiance Fields (NeRFs) and being utilized for optimizing NeRFs. However, these methods often encounter
-            artifacts and inconsistencies across multiple views due to their limited understanding of 3D geometry. To address these limitations, we propose a reformulation of the optimization loss using the diffusion prior. Furthermore, we introduce a novel training approach that unlocks the potential
-            of the diffusion prior. To improve 3D geometry representation, we apply
-            auxiliary depth supervision for NeRF-rendered images and regularize the
-            density field of NeRFs. Extensive experiments demonstrate the superiority
-            of our method over prior works, resulting in advanced photo-realism and
-            improved multi-view consistency.
+            The advancements in automatic text-to-3D generation have been remarkable. Most existing methods use pre-trained text-to-image diffusion models to optimize 3D representations like Neural Radiance Fields (NeRFs) via latent-space denoising score matching. Yet, these methods often result in artifacts and inconsistencies across different views due to their suboptimal optimization approaches and limited understanding of 3D geometry. Moreover, the inherent constraints of NeRFs in rendering crisp geometry and stable textures usually lead to a two-stage optimization to attain high-resolution details. This work proposes holistic sampling and smoothing approaches to achieve high-quality text-to-3D generation, all in a single-stage optimization. We compute denoising scores in the text-to-image diffusion model's latent and image spaces. Instead of randomly sampling timesteps (also referred to as noise levels in denoising score matching), we introduce a novel timestep annealing approach that progressively reduces the sampled timestep throughout optimization. To generate high-quality renderings in a single-stage optimization, we propose regularization for the variance of z-coordinates along NeRF rays. To address texture flickering issues in NeRFs, we introduce a kernel smoothing technique that refines importance sampling weights coarse-to-fine, ensuring accurate and thorough sampling in high-density regions. Extensive experiments demonstrate the superiority of our method over previous approaches, enabling the generation of highly detailed and view-consistent 3D assets through a single-stage training process. 
           </p>
         </div>
       </div>
@@ -140,6 +131,140 @@
     <hr>
 
 
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><p style="color:#000000">Image guided 3D generation</p></h2>
+        <div class="content has-text-justified">
+          <center>
+            <p style="color:#000000">
+              Our paper's main focus is text-to-3d, but we also ran several image-guided 3d generation experiments, with the help of <a href="https://liuyuan-pal.github.io/SyncDreamer/">Syncdreamer</a>
+            </p>
+          </center>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td><img src="./HiFA_files/image_guided_v3/dinosaur3.jpeg" width="1600" height="1600"></td>
+              <td><img src="./HiFA_files/image_guided_v3/dinosaur_df_ep0100_rgb.gif" width="1600" height="1600"></td>
+              <td><img src="./HiFA_files/image_guided_v3/teapot.png" width="1600" height="1600"></td>
+              <td><img src="./HiFA_files/image_guided_v3/teapot_df_ep0100_rgb.gif" width="1600" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/image_guided_v3/ring.webp" width="1600" height="1600"></td>
+              <td><img src="./HiFA_files/image_guided_v3/ring_df_ep0100_rgb.gif" width="1600" height="1600"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3"><p style="color:#000000">Text to 3D</p></h2>
+        <div class="content has-text-justified">
+          <center>
+            <p style="color:#000000">
+              We ran extensive text to 3d experiments
+            </p>
+          </center>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/bagel_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/barrel0.2_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/bee_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/budda_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/bunny_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/cactus_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/castle_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/chess_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/cottage_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/crossiant2_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/cthulhu_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/dobut2_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/dog_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/dragon_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/ladubug_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/lionfish_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/mario_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/name.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/octopus_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/pancake_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/parrot_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/peacock_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/pisa2_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/pomeranian_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/pot_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/pumpkin_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/skull_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/slipper_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/sundae2_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/sundae3_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/sushicar2_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/sushicar_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/tarantula_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            <!-- <tr>
+              <td><img src="./HiFA_files/gifs_v3/tower1_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr> -->
+              <td><img src="./HiFA_files/gifs_v3/tower2_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/tree_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/tulip.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/tulip_step1_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            <!-- <tr>
+              <td><img src="./HiFA_files/gifs_v3/tulip_step8_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr> -->
+              <td><img src="./HiFA_files/gifs_v3/turtle_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/vessel_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+              <td><img src="./HiFA_files/gifs_v3/watermelon_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+            <tr>
+              <td><img src="./HiFA_files/gifs_v3/astronaut_rgb_normal.mp4.gif" width="3200" height="1600"></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!-- 
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
@@ -205,20 +330,20 @@
       </div>
     </div>
     <hr>
-
+ -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
           <iframe width="800" height="450" src="https://www.youtube.com/embed/E4sD4ng4VH0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!--/ Paper video. -->
-   
+<!--    
     <hr>
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
@@ -336,7 +461,7 @@
         <img src="./HiFA_files/method_scaled.png">
       </div>
     </div>
-
+ -->
 
 
     <!--/ Matting. -->
@@ -371,7 +496,7 @@
       </code></pre>
   </div>
 </section> -->
-
+<!-- 
 <div class="columns is-centered has-text-centered">
   <div class="column is-full-width">
     <h2 class="title is-3">Additional Synthesis Results</h2>
@@ -426,7 +551,7 @@
     </tbody></table>
   </div>
 </div>
-<hr>
+<hr> -->
 
 <footer class="footer">
   <div class="container">
