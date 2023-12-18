@@ -11,7 +11,7 @@ html_content = "<html>\n<body>\n<table>\n"
 
 # Helper function to create a description from a filename
 def create_description(filename):
-    description = filename.replace('``', '').replace('"', '').replace('.gif', '').replace('_', ' ')
+    description = filename.replace('``', '').replace('"', '').replace('.gif', '').replace('_', ' ').replace('.mp4', '')
     return description.capitalize()
 
 # Read filenames from the directory and sort them
@@ -19,7 +19,7 @@ filenames = [f for f in os.listdir(directory) if f.endswith(".gif")]
 filenames.sort()
 
 # Process files in pairs
-for i in range(0, len(filenames), 2):
+for i in range(0, len(filenames), 4):
     # Initialize the row for images and descriptions
     image_row = "  <tr>\n"
     description_row = "  <tr>\n"
@@ -42,6 +42,24 @@ for i in range(0, len(filenames), 2):
         # HTML for the second file
         image_row += f"    <td><img src=\"{mp4_path2}\" width=\"3200\" height=\"1600\"></td>\n"
         description_row += f"    <td colspan=\"1\" align=\"center\">{description2}</td>\n"
+
+    if i + 2 < len(filenames):
+        file3 = filenames[i+2]
+        mp4_path3 = f"./HiFA_files/fantasia3d_comparisons/{file3}"
+        description3 = create_description(file3)
+
+        # HTML for the second file
+        image_row += f"    <td><img src=\"{mp4_path3}\" width=\"3200\" height=\"1600\"></td>\n"
+        description_row += f"    <td colspan=\"1\" align=\"center\">{description3}</td>\n"
+
+    if i + 3 < len(filenames):
+        file4 = filenames[i+3]
+        mp4_path4 = f"./HiFA_files/fantasia3d_comparisons/{file4}"
+        description4 = create_description(file4)
+
+        # HTML for the second file
+        image_row += f"    <td><img src=\"{mp4_path4}\" width=\"3200\" height=\"1600\"></td>\n"
+        description_row += f"    <td colspan=\"1\" align=\"center\">{description4}</td>\n"
 
     # Close the rows
     image_row += "  </tr>\n"
